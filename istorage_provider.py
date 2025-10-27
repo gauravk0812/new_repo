@@ -10,8 +10,6 @@ from pylekhagaar.core.schemas.storage_type import DocStorageType
 
 class IStorageProvider(ABC):
 
-
-
     @property
     @abstractmethod
     def storage_type(self) -> StorageTypeEnum:
@@ -39,7 +37,7 @@ class IStorageProvider(ABC):
         raise NotImplementedError()
     
     @abstractmethod
-    def get_document_content(self, document_id: UUID) -> tuple[BinaryIO, str]:
+    def get_document_content(self, document_id: UUID) -> tuple[BinaryIO, str | None]:
         """
         Retrieve the content of a document as a binary stream.
         :param document_id: The unique identifier of the document.
